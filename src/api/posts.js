@@ -16,11 +16,29 @@ const getUserLikedPosts = async (likerId, token, query) => {
     );
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
+  }
+};
+const getPosts = async (token, query) => {
+  try {
+    const res = await fetch(
+      BASE_URL + "api/posts?" + new URLSearchParams(query),
+      {
+        headers: {
+          "x-access-token": token,
+        },
+      }
+    );
+    if (!res.ok) {
+      throw new Error(`Server error: ${res.status}`);
+    }
+    return await res.json();
+  } catch (err) {
+    console.error(err);
   }
 };
 
-const getPosts = async (token, query) => {
+/*const getPosts = async (token, query) => {
   try {
     const res = await fetch(
       BASE_URL + "api/posts?" + new URLSearchParams(query),
@@ -32,9 +50,9 @@ const getPosts = async (token, query) => {
     );
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
-};
+};*/
 
 const getPost = async (postId, token) => {
   try {
@@ -45,7 +63,7 @@ const getPost = async (postId, token) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -63,7 +81,7 @@ const getUserLikes = async (postId, anchor) => {
 
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -80,7 +98,7 @@ const createPost = async (post, user) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -97,7 +115,7 @@ const updatePost = async (postId, user, data) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -111,7 +129,7 @@ const deletePost = async (postId, user) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -121,7 +139,7 @@ const getComments = async (params) => {
     const res = await fetch(BASE_URL + "api/comments/post/" + id);
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -133,7 +151,7 @@ const getUserComments = async (params) => {
     );
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -151,7 +169,7 @@ const createComment = async (comment, params, user) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -168,7 +186,7 @@ const updateComment = async (commentId, user, data) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -182,7 +200,7 @@ const deleteComment = async (commentId, user) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -196,7 +214,7 @@ const likePost = async (postId, user) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -210,7 +228,7 @@ const unlikePost = async (postId, user) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 

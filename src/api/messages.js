@@ -9,7 +9,7 @@ const getConversations = async (user) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -22,7 +22,7 @@ const getMessages = async (user, conversationId) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -39,7 +39,7 @@ const sendMessage = async (user, message, recipientId) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 

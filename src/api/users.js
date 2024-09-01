@@ -12,7 +12,7 @@ const signup = async (user) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -28,7 +28,7 @@ const login = async (user) => {
     });
     return await res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -37,7 +37,7 @@ const getUser = async (params) => {
     const res = await fetch(BASE_URL + "api/users/" + params.id);
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -48,7 +48,7 @@ const getRandomUsers = async (query) => {
     );
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -65,7 +65,7 @@ const updateUser = async (user, data) => {
     });
     return res.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
