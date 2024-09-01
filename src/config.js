@@ -1,6 +1,6 @@
-let BASE_URL = "";
+let BASE_URL = "https://catchup-node.onrender.com";
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
-  BASE_URL = "http://localhost:5000/";
+  BASE_URL = "https://catchup-node.onrender.com";
 }
 
 export { BASE_URL };
