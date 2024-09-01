@@ -11,6 +11,7 @@ import Loading from "./Loading";
 import PostCard from "./PostCard";
 import SortBySelect from "./SortBySelect";
 import HorizontalStack from "./util/HorizontalStack";
+import { FaArrowUp } from "react-icons/fa";
 
 const PostBrowser = (props) => {
   const [posts, setPosts] = useState([]);
@@ -99,6 +100,8 @@ const PostBrowser = (props) => {
     });
   };
 
+  
+
   const contentTypeSorts = {
     posts: {
       "-createdAt": "Latest",
@@ -153,13 +156,15 @@ const PostBrowser = (props) => {
           <Stack py={5} alignItems="center">
             <Typography variant="h5" color="text.secondary" gutterBottom>
               {posts.length > 0 ? (
-                <>All posts have been viewed</>
+                <>You are caught up</>
               ) : (
-                <>No posts available</>
+                <>posts will appear here</>
               )}
             </Typography>
             <Button variant="text" size="small" onClick={handleBackToTop}>
-              Back to top
+               
+            <FaArrowUp size={36} color="black" />
+
             </Button>
           </Stack>
         ) : (
@@ -171,7 +176,9 @@ const PostBrowser = (props) => {
                 Load more
               </Button>
               <Button variant="text" size="small" onClick={handleBackToTop}>
-                Back to top
+                
+              <FaArrowUp size={36} color="black" />
+                
               </Button>
             </Stack>
           )

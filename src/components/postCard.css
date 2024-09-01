@@ -1,5 +1,5 @@
 .post-card .primary .content {
-  -webkit-mask-image: linear-gradient(black 175px, transparent 250px);
+  -webkit-mask-image: linear-gradient(rgb(43, 7, 7) 175px, transparent 250px);
   mask-image: linear-gradient(black 175px, transparent 250px);
 }
 

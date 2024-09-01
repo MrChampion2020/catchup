@@ -37,7 +37,7 @@ const Profile = (props) => {
             <UserAvatar width={150} height={150} username={user.username} />
           </Box>
 
-          <Typography variant="h5">{user.username}</Typography>
+          <Typography variant="h5" fontFamily="lobster">{user.username}</Typography>
 
           {props.editing ? (
             <Box>
@@ -48,12 +48,12 @@ const Profile = (props) => {
               />
             </Box>
           ) : user.biography ? (
-            <Typography textAlign="center" variant="p">
+            <Typography textAlign="center" variant="p" fontFamily="lobster">
               <b>Bio: </b>
               {user.biography}
             </Typography>
           ) : (
-            <Typography variant="p">
+            <Typography variant="p" fontFamily="lobster">
               <i>No bio yet</i>
             </Typography>
           )}

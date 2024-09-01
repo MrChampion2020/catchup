@@ -15,6 +15,7 @@ import { login } from "../../api/users";
 import ErrorAlert from "../ErrorAlert";
 import { loginUser } from "../../helpers/authHelper";
 import Copyright from "../Copyright";
+import { FaEye, FaEyeSlash} from "react-icons/fa";
 
 const LoginView = () => {
   const navigate = useNavigate();
@@ -41,12 +42,13 @@ const LoginView = () => {
       navigate("/");
     }
   };
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <Container maxWidth={"xs"} sx={{ mt: 6 }}>
       <Stack alignItems="center">
         <Typography variant="h2" color="text.secondary" sx={{ mb: 6 }}>
-          <Link to="/" color="inherit" underline="none">
+          <Link to="/" color="black" underline="none">
             CatchUp
           </Link>
         </Typography>
@@ -68,16 +70,47 @@ const LoginView = () => {
             name="email"
             onChange={handleChange}
           />
-          <TextField
-            label="Password"
-            fullWidth
-            required
-            margin="normal"
-            id="password  "
-            name="password"
-            onChange={handleChange}
-            type="password"
-          />
+          
+          
+<Box style={{ position: 'relative' }}>
+  <TextField
+    label="Password"
+    fullWidth
+    required
+    margin="normal"
+    id="password"
+    name="password"
+    onChange={handleChange}
+    type={showPassword ? 'text' : 'password'}
+  />
+  <FaEye
+    size={24}
+    color="#000"
+    style={{
+      position: 'absolute',
+      top: '50%',
+      right: '10px',
+      transform: 'translateY(-50%)',
+      cursor: 'pointer',
+    }}
+    onClick={() => setShowPassword(true)}
+  />
+  <FaEyeSlash
+    size={24}
+    color="#000"
+    style={{
+      position: 'absolute',
+      top: '50%',
+      right: '10px',
+      transform: 'translateY(-50%)',
+      cursor: 'pointer',
+      display: showPassword ? 'block' : 'none',// Hide the eye-slash icon initially
+    }}
+    onClick={() => setShowPassword(false)}
+  />
+
+  
+</Box>
 
           <ErrorAlert error={serverError} />
           <Button type="submit" fullWidth variant="contained" sx={{ my: 2 }}>
